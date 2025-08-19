@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="login-page">
+        <header>
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-play-circle"></i>
+                    Upstage Studios
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="following.html">Following</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="feeds.html">Feeds</a></li>
+                    <li><a href="studio%20editor.html">Studio Editor</a></li>
+                    <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+                </ul>
+                <div class="user-menu">
+                    <button class="active">Log In</button>
+                    <button onclick="window.location.href='signup.html'">Sign Up</button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="login-main">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h1>Welcome Back</h1>
+                        <p>Sign in to your Upstage Studios account</p>
+                    </div>
+
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="username">
+                                <i class="fas fa-user"></i>
+                                Username or Email
+                            </label>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                placeholder="Enter your username or email"
+                                required
+                                autocomplete="username"
+                            >
+                            <span class="error-message" id="username-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i>
+                                Password
+                            </label>
+                            <div class="password-input-container">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    placeholder="Enter your password"
+                                    required
+                                    autocomplete="current-password"
+                                >
+                                <button type="button" class="password-toggle" id="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="error-message" id="password-error"></span>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" id="remember-me" name="remember-me">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password" id="forgot-password">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="login-button" id="login-button">
+                            <span class="button-text">Log In</span>
+                            <div class="loading-spinner" id="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </button>
+
+                        <div class="form-divider">
+                            <span>or</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="social-button google-login" id="google-login">
+                                <i class="fab fa-google"></i>
+                                Continue with Google
+                            </button>
+                            <button type="button" class="social-button discord-login" id="discord-login">
+                                <i class="fab fa-discord"></i>
+                                Continue with Discord
+                            </button>
+                            <button type="button" class="social-button twitch-login" id="twitch-login">
+                                <i class="fab fa-twitch"></i>
+                                Continue with Twitch
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="login-footer">
+                        <p class="signup-link">
+                            Don't have an account? 
+                            <a href="signup.html">Sign up for free</a>
+                        </p>
+                        <div class="help-links">
+                            <a href="#" class="help-link">Need help?</a>
+                            <a href="#" class="help-link">Privacy Policy</a>
+                            <a href="#" class="help-link">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="login-features">
+                    <h2>Join the Upstage Community</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-video"></i>
+                            <h3>Stream Live</h3>
+                            <p>Broadcast your content to thousands of viewers worldwide</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <h3>Build Community</h3>
+                            <p>Connect with fans and grow your following</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>Monetize Content</h3>
+                            <p>Earn money through subscriptions, donations, and ads</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Track Analytics</h3>
+                            <p>Monitor your growth with detailed insights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forgot Password Modal -->
+            <div id="forgot-password-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Reset Password</h2>
+                        <button class="modal-close" id="modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <form id="forgot-password-form">
+                        <div class="form-group">
+                            <label for="reset-email">Email Address</label>
+                            <input 
+                                type="email" 
+                                id="reset-email" 
+                                name="reset-email" 
+                                placeholder="Enter your email address"
+                                required
+                            >
+                        </div>
+                        <button type="submit" class="reset-button">Send Reset Link</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Success/Error Messages -->
+            <div id="message-container" class="message-container">
+                <div id="success-message" class="message success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="message-text"></span>
+                </div>
+                <div id="error-message" class="message error-message">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span class="message-text"></span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Upstage Studios</h3>
+                    <p>The ultimate streaming platform for creators and viewers.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="following.html">Following</a></li>
+                        <li><a href="creator-dashboard.html">Creator Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Upstage Studios. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

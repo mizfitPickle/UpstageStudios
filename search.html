@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Upstage Studios</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html" class="active">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="search-page">
+        <div class="search-header">
+            <h1>Discover Content</h1>
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search for channels, games, categories, or creators...">
+                    <button id="voice-search" class="voice-search-btn" title="Voice Search">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button id="search-button" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="search-suggestions">
+                    <!-- Search suggestions will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="search-filters">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="channels">Channels</button>
+                <button class="filter-tab" data-filter="games">Games</button>
+                <button class="filter-tab" data-filter="categories">Categories</button>
+                <button class="filter-tab" data-filter="clips">Clips</button>
+                <button class="filter-tab" data-filter="videos">Videos</button>
+            </div>
+            
+            <div class="advanced-filters">
+                <button id="toggle-filters" class="filter-toggle">
+                    <i class="fas fa-sliders-h"></i> Filters
+                </button>
+                <div class="sort-options">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="viewers">Most Viewers</option>
+                        <option value="recent">Most Recent</option>
+                        <option value="duration">Duration</option>
+                        <option value="alphabetical">A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-panel" id="filter-panel">
+            <div class="filter-section">
+                <h3>Content Type</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="live" checked> Live Streams</label>
+                    <label><input type="checkbox" value="vod" checked> Videos</label>
+                    <label><input type="checkbox" value="clips" checked> Clips</label>
+                    <label><input type="checkbox" value="highlights" checked> Highlights</label>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Duration</h3>
+                <div class="radio-group">
+                    <label><input type="radio" name="duration" value="any" checked> Any Duration</label>
+                    <label><input type="radio" name="duration" value="short"> Under 10 minutes</label>
+                    <label><input type="radio" name="duration" value="medium"> 10-60 minutes</label>
+                    <label><input type="radio" name="duration" value="long"> Over 1 hour</label>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Language</h3>
+                <select id="language-filter">
+                    <option value="all">All Languages</option>
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ko">Korean</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="ru">Russian</option>
+                </select>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Upload Date</h3>
+                <div class="radio-group">
+                    <label><input type="radio" name="upload-date" value="any" checked> Any Time</label>
+                    <label><input type="radio" name="upload-date" value="hour"> Last Hour</label>
+                    <label><input type="radio" name="upload-date" value="day"> Last 24 Hours</label>
+                    <label><input type="radio" name="upload-date" value="week"> This Week</label>
+                    <label><input type="radio" name="upload-date" value="month"> This Month</label>
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button id="apply-filters" class="apply-btn">Apply Filters</button>
+                <button id="clear-filters" class="clear-btn">Clear All</button>
+            </div>
+        </div>
+
+        <div class="search-content">
+            <div class="trending-searches" id="trending-section">
+                <h2>Trending Searches</h2>
+                <div class="trending-tags">
+                    <span class="trending-tag" data-search="gaming">#Gaming</span>
+                    <span class="trending-tag" data-search="music">#Music</span>
+                    <span class="trending-tag" data-search="art">#Art</span>
+                    <span class="trending-tag" data-search="cooking">#Cooking</span>
+                    <span class="trending-tag" data-search="tech">#Tech</span>
+                    <span class="trending-tag" data-search="fitness">#Fitness</span>
+                    <span class="trending-tag" data-search="education">#Education</span>
+                    <span class="trending-tag" data-search="travel">#Travel</span>
+                </div>
+            </div>
+
+            <div class="popular-categories" id="categories-section">
+                <h2>Popular Categories</h2>
+                <div class="category-grid">
+                    <div class="category-card" data-category="gaming">
+                        <img src="https://placehold.co/200x150" alt="Gaming">
+                        <div class="category-info">
+                            <h3>Gaming</h3>
+                            <p>125,000 viewers</p>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="music">
+                        <img src="https://placehold.co/200x150" alt="Music">
+                        <div class="category-info">
+                            <h3>Music</h3>
+                            <p>85,000 viewers</p>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="creative">
+                        <img src="https://placehold.co/200x150" alt="Creative">
+                        <div class="category-info">
+                            <h3>Creative</h3>
+                            <p>45,000 viewers</p>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="irl">
+                        <img src="https://placehold.co/200x150" alt="IRL">
+                        <div class="category-info">
+                            <h3>Just Chatting</h3>
+                            <p>95,000 viewers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-results" id="search-results">
+                <div class="results-header">
+                    <h2 id="results-title">Search Results</h2>
+                    <div class="results-count" id="results-count">0 results found</div>
+                </div>
+                
+                <div class="results-container">
+                    <div class="result-grid" id="result-grid">
+                        <!-- Search results will be added here by JavaScript -->
+                    </div>
+                    
+                    <div class="no-results" id="no-results" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <h3>No results found</h3>
+                        <p>Try adjusting your search terms or filters</p>
+                        <div class="search-suggestions-alt">
+                            <h4>Suggestions:</h4>
+                            <ul>
+                                <li>Check your spelling</li>
+                                <li>Try more general keywords</li>
+                                <li>Remove some filters</li>
+                                <li>Browse popular categories instead</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="load-more-container">
+                    <button id="load-more" class="load-more-btn" style="display: none;">
+                        Load More Results
+                    </button>
+                </div>
+            </div>
+
+            <div class="recent-searches" id="recent-searches">
+                <h2>Recent Searches</h2>
+                <div class="recent-list">
+                    <!-- Recent searches will be populated here -->
+                </div>
+                <button id="clear-history" class="clear-history-btn">Clear Search History</button>
+            </div>
+
+            <div class="featured-creators" id="featured-creators">
+                <h2>Featured Creators</h2>
+                <div class="creator-grid">
+                    <!-- Featured creators will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Result Modal -->
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-header">
+                    <img id="modal-thumbnail" src="" alt="Thumbnail">
+                    <div class="modal-info">
+                        <h2 id="modal-title">Title</h2>
+                        <p id="modal-creator">Creator</p>
+                        <div class="modal-stats">
+                            <span id="modal-viewers">0 viewers</span>
+                            <span id="modal-duration">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-description">Description</p>
+                    <div class="modal-tags" id="modal-tags">
+                        <!-- Tags will

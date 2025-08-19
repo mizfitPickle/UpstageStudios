@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Studio Dashboard - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/music-studio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                Upstage Studios
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="music-studio-dashboard">
+        <div class="dashboard-header">
+            <div class="header-content">
+                <button class="back-btn" onclick="window.location.href='creator-dashboard.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Dashboard
+                </button>
+                <h1>Music Studio</h1>
+                <div class="studio-status">
+                    <div class="recording-indicator" id="recording-indicator">
+                        <span class="rec-dot"></span>
+                        <span class="rec-text">Ready to Record</span>
+                    </div>
+                    <div class="bpm-display">
+                        <span>BPM: </span>
+                        <span id="current-bpm">120</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="studio-tabs">
+            <button class="tab-btn active" data-tab="beat-maker">
+                <i class="fas fa-drum"></i>
+                Beat Maker
+            </button>
+            <button class="tab-btn" data-tab="mixer">
+                <i class="fas fa-sliders-h"></i>
+                Mixer
+            </button>
+            <button class="tab-btn" data-tab="instruments">
+                <i class="fas fa-piano"></i>
+                Instruments
+            </button>
+            <button class="tab-btn" data-tab="projects">
+                <i class="fas fa-folder"></i>
+                Projects
+            </button>
+            <button class="tab-btn" data-tab="samples">
+                <i class="fas fa-music"></i>
+                Sample Library
+            </button>
+        </div>
+
+        <!-- Beat Maker Tab -->
+        <div class="tab-content active" id="beat-maker-tab">
+            <div class="beat-maker-grid">
+                <section class="drum-machine">
+                    <h2>Drum Machine</h2>
+                    <div class="drum-controls">
+                        <button id="play-beat" class="control-btn play">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="stop-beat" class="control-btn stop">
+                            <i class="fas fa-stop"></i>
+                        </button>
+                        <button id="record-beat" class="control-btn record">
+                            <i class="fas fa-circle"></i>
+                        </button>
+                        <div class="tempo-control">
+                            <label for="tempo-slider">Tempo:</label>
+                            <input type="range" id="tempo-slider" min="60" max="200" value="120">
+                            <span id="tempo-value">120 BPM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="drum-grid">
+                        <div class="track-labels">
+                            <div class="track-label">Kick</div>
+                            <div class="track-label">Snare</div>
+                            <div class="track-label">Hi-Hat</div>
+                            <div class="track-label">Open Hat</div>
+                            <div class="track-label">Crash</div>
+                            <div class="track-label">Clap</div>
+                            <div class="track-label">Perc 1</div>
+                            <div class="track-label">Perc 2</div>
+                        </div>
+                        
+                        <div class="step-grid" id="step-grid">
+                            <!-- 16 steps x 8 tracks = 128 buttons will be generated by JS -->
+                        </div>
+                        
+                        <div class="step-numbers">
+                            <div class="step-number">1</div>
+                            <div class="step-number">2</div>
+                            <div class="step-number">3</div>
+                            <div class="step-number">4</div>
+                            <div class="step-number">5</div>
+                            <div class="step-number">6</div>
+                            <div class="step-number">7</div>
+                            <div class="step-number">8</div>
+                            <div class="step-number">9</div>
+                            <div class="step-number">10</div>
+                            <div class="step-number">11</div>
+                            <div class="step-number">12</div>
+                            <div class="step-number">13</div>
+                            <div class="step-number">14</div>
+                            <div class="step-number">15</div>
+                            <div class="step-number">16</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="pattern-controls">
+                    <h2>Pattern Controls</h2>
+                    <div class="pattern-buttons">
+                        <button class="pattern-btn active" data-pattern="A">A</button>
+                        <button class="pattern-btn" data-pattern="B">B</button>
+                        <button class="pattern-btn" data-pattern="C">C</button>
+                        <button class="pattern-btn" data-pattern="D">D</button>
+                    </div>
+                    <div class="pattern-actions">
+                        <button id="copy-pattern">Copy Pattern</button>
+                        <button id="clear-pattern">Clear Pattern</button>
+                        <button id="randomize-pattern">Randomize</button>
+                    </div>
+                    <div class="swing-control">
+                        <label for="swing-slider">Swing:</label>
+                        <input type="range" id="swing-slider" min="0" max="100" value="0">
+                        <span id="swing-value">0%</span>
+                    </div>
+                </section>
+
+                <section class="sound-pads">
+                    <h2>Sound Pads</h2>
+                    <div class="pad-grid">
+                        <button class="sound-pad" data-sound="kick">
+                            <span class="pad-label">Kick</span>
+                            <span class="pad-key">Q</span>
+                        </button>
+                        <button class="sound-pad" data-sound="snare">
+                            <span class="pad-label">Snare</span>
+                            <span class="pad-key">W</span>
+                        </button>
+                        <button class="sound-pad" data-sound="hihat">
+                            <span class="pad-label">Hi-Hat</span>
+                            <span class="pad-key">E</span>
+                        </button>
+                        <button class="sound-pad" data-sound="openhat">
+                            <span class="pad-label">Open Hat</span>
+                            <span class="pad-key">R</span>
+                        </button>
+                        <button class="sound-pad" data-sound="crash">
+                            <span class="pad-label">Crash</span>
+                            <span class="pad-key">A</span>
+                        </button>
+                        <button class="sound-pad" data-sound="clap">
+                            <span class="pad-label">Clap</span>
+                            <span class="pad-key">S</span>
+                        </button>
+                        <button class="sound-pad" data-sound="perc1">
+                            <span class="pad-label">Perc 1</span>
+                            <span class="pad-key">D</span>
+                        </button>
+                        <button class="sound-pad" data-sound="perc2">
+                            <span class="pad-label">Perc 2</span>
+                            <span class="pad-key">F</span>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="effects-rack">
+                    <h2>Effects</h2>
+                    <div class="effect-modules">
+                        <div class="effect-module">
+                            <h3>Reverb</h3>
+                            <div class="effect-controls">
+                                <label>Room Size</label>
+                                <input type="range" id="reverb-size" min="0" max="100" value="30">
+                                <label>Wet/Dry</label>
+                                <input type="range" id="reverb-mix" min="0" max="100" value="20">
+                            </div>
+                        </div>
+                        <div class="effect-module">
+                            <h3>Delay</h3>
+                            <div class="effect-controls">
+                                <label>Time</label>
+                                <input type="range" id="delay-time" min="0" max="100" value="25">
+                                <label>Feedback</label>
+                                <input type="range" id="delay-feedback" min="0" max="100" value="40">
+                            </div>
+                        </div>
+                        <div class="effect-module">
+                            <h3>Filter</h3>
+                            <div class="effect-controls">
+                                <label>Cutoff</label>
+                                <input type="range" id="filter-cutoff" min="0" max="100" value="70">
+                                <label>Resonance</label>
+                                <input type="range" id="filter-resonance" min="0" max="100" value="10">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Mixer Tab -->
+        <div class="tab-content" id="mixer-tab">
+            <div class="mixer-console">
+                <h2>Mixing Console</h2>
+                <div class="mixer-channels">
+                    <div class="mixer-channel">
+                        <h3>Kick</h3>
+                        <div class="channel-controls">
+                            <div class="eq-section">
+                                <label>High</label>
+                                <input type="range" class="eq-knob" min="-12" max="12" value="0">
+                                <label>Mid</label>
+                                <input type="range" class="eq-knob" min="-12" max="12" value="0">
+                                <label>Low</label>
+                                <input type="range" class="eq-knob" min="-12" max="12" value="0">
+                            </div>
+                            <div

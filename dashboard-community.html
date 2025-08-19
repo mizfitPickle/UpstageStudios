@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Dashboard - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                Upstage Studios
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html" class="active">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="creator-dashboard">
+        <div class="dashboard-header">
+            <h1>Creator Dashboard</h1>
+            <div class="dashboard-overview">
+                <div class="overview-card">
+                    <i class="fas fa-eye"></i>
+                    <div class="card-info">
+                        <h3>Total Views</h3>
+                        <span id="total-views">1,234,567</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <i class="fas fa-users"></i>
+                    <div class="card-info">
+                        <h3>Followers</h3>
+                        <span id="total-followers">45,678</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div class="card-info">
+                        <h3>Revenue</h3>
+                        <span id="total-revenue">$2,345</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <i class="fas fa-video"></i>
+                    <div class="card-info">
+                        <h3>Live Status</h3>
+                        <span id="live-status" class="offline">Offline</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-navigation">
+            <div class="nav-grid">
+                <div class="nav-card" onclick="window.location.href='dashboard-streaming.html'">
+                    <div class="nav-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Streaming</h3>
+                    <p>Manage your live streams, setup, and controls</p>
+                    <div class="nav-stats">
+                        <span>Currently: <strong id="stream-status">Offline</strong></span>
+                    </div>
+                </div>
+
+                <div class="nav-card" onclick="window.location.href='dashboard-community.html'">
+                    <div class="nav-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Q&A, polls, giveaways, and engagement tools</p>
+                    <div class="nav-stats">
+                        <span>Active polls: <strong>2</strong></span>
+                    </div>
+                </div>
+
+                <div class="nav-card" onclick="window.location.href='dashboard-music-studio.html'">
+                    <div class="nav-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music Studio</h3>
+                    <p>Create beats, mix tracks, and music production</p>
+                    <div class="nav-stats">
+                        <span>Projects: <strong>12</strong></span>
+                    </div>
+                </div>
+
+                <div class="nav-card" onclick="window.location.href='dashboard-analytics.html'">
+                    <div class="nav-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics</h3>
+                    <p>View detailed statistics and performance metrics</p>
+                    <div class="nav-stats">
+                        <span>Growth: <strong>+15%</strong></span>
+                    </div>
+                </div>
+
+                <div class="nav-card" onclick="window.location.href='dashboard-monetization.html'">
+                    <div class="nav-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Monetization</h3>
+                    <p>Donations, subscriptions, and revenue management</p>
+                    <div class="nav-stats">
+                        <span>This month: <strong>$1,234</strong></span>
+                    </div>
+                </div>
+
+                <div class="nav-card" onclick="window.location.href='studio%20editor.html'">
+                    <div class="nav-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Studio Editor</h3>
+                    <p>Advanced video editing and post-production</p>
+                    <div class="nav-stats">
+                        <span>Clips: <strong>8</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <button class="action-btn primary" onclick="startQuickStream()">
+                    <i class="fas fa-play"></i>
+                    Start Quick Stream
+                </button>
+                <button class="action-btn" onclick="window.location.href='dashboard-community.html#polls'">
+                    <i class="fas fa-poll"></i>
+                    Create Poll
+                </button>
+                <button class="action-btn" onclick="window.location.href='dashboard-community.html#giveaway'">
+                    <i class="fas fa-gift"></i>
+                    Start Giveaway
+                </button>
+                <button class="action-btn" onclick="window.location.href='dashboard-music-studio.html'">
+                    <i class="fas fa-music"></i>
+                    New Beat
+                </button>
+            </div>
+        </div>
+
+        <div class="recent-activity">
+            <h2>Recent Activity</h2>
+            <div class="activity-feed">
+                <div class="activity-item">
+                    <i class="fas fa-video"></i>
+                    <div class="activity-content">
+                        <p><strong>Stream ended:</strong> "Making Beats Live" - 2 hours, 45 minutes</p>
+                        <span class="activity-time">2 hours ago</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-poll"></i>
+                    <div class="activity-content">
+                        <p><strong>Poll completed:</strong> "What genre should I make next?" - 156 votes</p>
+                        <span class="activity-time">4 hours ago</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-gift"></i>
+                    <div class="activity-content">
+                        <p><strong>Giveaway winner:</strong> @MusicLover123 won the beat pack</p>
+                        <span class="activity-time">1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Upstage Studios. All rights reserved.</p>
+    </footer>
+
+    <script src="js/dashboard-main.js"></script>
+</body>
+</html>

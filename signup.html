@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="signup-page">
+        <header>
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-play-circle"></i>
+                    Upstage Studios
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="following.html">Following</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="feeds.html">Feeds</a></li>
+                    <li><a href="studio%20editor.html">Studio Editor</a></li>
+                    <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+                </ul>
+                <div class="user-menu">
+                    <button onclick="window.location.href='login.html'">Log In</button>
+                    <button class="active">Sign Up</button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="signup-main">
+            <div class="signup-container">
+                <div class="signup-card">
+                    <div class="signup-header">
+                        <h1>Join Upstage Studios</h1>
+                        <p>Create your account and start streaming today</p>
+                    </div>
+
+                    <div class="signup-steps">
+                        <div class="step active" data-step="1">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Account</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Profile</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Preferences</span>
+                        </div>
+                    </div>
+
+                    <form id="signup-form" class="signup-form">
+                        <!-- Step 1: Account Information -->
+                        <div class="form-step active" id="step-1">
+                            <h2>Account Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="username">
+                                    <i class="fas fa-user"></i>
+                                    Username
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="username" 
+                                    name="username" 
+                                    placeholder="Choose a unique username"
+                                    required
+                                    autocomplete="username"
+                                    minlength="3"
+                                    maxlength="20"
+                                >
+                                <div class="input-help">
+                                    <span class="help-text">3-20 characters, letters, numbers, and underscores only</span>
+                                    <span class="availability-check" id="username-availability"></span>
+                                </div>
+                                <span class="error-message" id="username-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="Enter your email address"
+                                    required
+                                    autocomplete="email"
+                                >
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">
+                                    <i class="fas fa-lock"></i>
+                                    Password
+                                </label>
+                                <div class="password-input-container">
+                                    <input 
+                                        type="password" 
+                                        id="password" 
+                                        name="password" 
+                                        placeholder="Create a strong password"
+                                        required
+                                        autocomplete="new-password"
+                                        minlength="8"
+                                    >
+                                    <button type="button" class="password-toggle" id="password-toggle">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength" id="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill"></div>
+                                    </div>
+                                    <span class="strength-text">Password strength</span>
+                                </div>
+                                <span class="error-message" id="password-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password">
+                                    <i class="fas fa-lock"></i>
+                                    Confirm Password
+                                </label>
+                                <div class="password-input-container">
+                                    <input 
+                                        type="password" 
+                                        id="confirm-password" 
+                                        name="confirm-password" 
+                                        placeholder="Confirm your password"
+                                        required
+                                        autocomplete="new-password"
+                                    >
+                                    <button type="button" class="password-toggle" id="confirm-password-toggle">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="error-message" id="confirm-password-error"></span>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Profile Information -->
+                        <div class="form-step" id="step-2">
+                            <h2>Profile Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="display-name">
+                                    <i class="fas fa-id-card"></i>
+                                    Display Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="display-name" 
+                                    name="display-name" 
+                                    placeholder="How should we display your name?"
+                                    maxlength="50"
+                                >
+                                <span class="help-text">This is how your name will appear to other users</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date-of-birth">
+                                    <i class="fas fa-calendar"></i>
+                                    Date of Birth
+                                </label>
+                                <input 
+                                    type="date" 
+                                    id="date-of-birth" 
+                                    name="date-of-birth" 
+                                    required
+                                >
+                                <span class="help-text">You must be 13 or older to create an account</span>
+                                <span class="error-message" id="date-of-birth-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">
+                                    <i class="fas fa-globe"></i>
+                                    Country/Region
+                                </label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select your country</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="KR">South Korea</option>
+                                    <option value="BR">Brazil</option>
+                                    <option value="MX">Mexico</option>
+                                    <!-- Add more countries as needed -->
+                                </select>
+                                <span class="error-message" id="country-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bio">
+                                    <i class="fas fa-user-edit"></i>
+                                    Bio (Optional)
+                                </label>
+                                <textarea 
+                                    id="bio" 
+                                    name="bio" 
+                                    placeholder="Tell us about yourself..."
+                                    maxlength="500"
+                                    rows="4"
+                                ></textarea>
+                                <div class="character-count">
+                                    <span id="bio-count">0</span>/500 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Preferences -->
+                        <div class="form-step" id="step-3">
+                            <h2>Preferences & Interests</h2>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-gamepad"></i>
+                                    What are you interested in?
+                                </label>
+                                <div class="interest-grid">
+                                    <label class="interest-item">
+                                        <input type="checkbox" name="interests" value="gaming">
+                                        <span class="interest-label">
+                                            <i class="fas fa-gamepad"></i>
+                                            Gaming
+                                        </span>
+                                    </label>
+                                    <label class="interest-item">
+                                        <input type="checkbox" name="interests" value="music">
+                                        <span class="interest-label">
+                                            <i class="fas fa-music"></i>
+                                            Music
+                                        </span>
+                                    </label>
+                                    <label class="interest-item">
+                                        <input type="checkbox" name="interests" value="art">
+                                        <span class="interest-label">
+                                            <i class="fas fa-palette"></i>
+                                            Art & Creative
+                                        </span>
+                                    </label>
+                                    <label class="interest-item">
+                                        <input type="checkbox" name="interests" value="irl">
+                                        <span class="interest-label">
+                                            <i class="fas fa-camera"></i>
+                                            IRL & Lifestyle
+                                        </span>
+                                    </label>
+                                    <label class="interest-item">
+                                        <input type="checkbox" name="interests" value="tech">
+                                        <span class="interest-label">
+                                            <i class="fas fa-laptop-code"></i>
+                                            Technology
+                                        </span>
+                                    </label>
+                                    <label class="interest-item">
+                                        <input type="checkbox" name="interests" value="sports">
+                                        <span class="interest-label">
+                                            <i class="fas fa-football-ball"></i>
+                                            Sports
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-bell"></i>
+                                    Notification Preferences
+                                </label>
+                                <div class="notification-options">
+                                    <label class="notification-item">
+                                        <input type="checkbox" name="notifications" value="email" checked>
+                                        <span class="checkmark"></span>
+                                        Email notifications
+                                    </label>

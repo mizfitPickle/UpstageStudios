@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Dashboard - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/music-studio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                Upstage Studios
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html" class="active">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="creator-dashboard">
+        <div class="dashboard-header">
+            <h1>Creator Dashboard</h1>
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="streaming" onclick="window.location.href='dashboard-streaming.html'">
+                    <i class="fas fa-video"></i>
+                    Streaming
+                </button>
+                <button class="tab-btn" data-tab="community" onclick="window.location.href='dashboard-community.html'">
+                    <i class="fas fa-users"></i>
+                    Community
+                </button>
+                <button class="tab-btn" data-tab="music-studio" onclick="window.location.href='dashboard-music-studio.html'">
+                    <i class="fas fa-music"></i>
+                    Music Studio
+                </button>
+                <button class="tab-btn" data-tab="analytics" onclick="window.location.href='dashboard-analytics.html'">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics
+                </button>
+                <button class="tab-btn" data-tab="monetization" onclick="window.location.href='dashboard-monetization.html'">
+                    <i class="fas fa-dollar-sign"></i>
+                    Monetization
+                </button>
+                <button class="tab-btn" data-tab="settings" onclick="window.location.href='dashboard-settings.html'">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+            </div>
+        </div>
+
+        <!-- Streaming Tab Content (Default) -->
+        <div class="tab-content active" id="streaming-tab">
+            <div class="dashboard-grid">
+                <section class="stream-setup">
+                    <h2>Stream Setup</h2>
+                    <form id="stream-form">
+                        <div class="form-group">
+                            <label for="stream-title">Stream Title</label>
+                            <input type="text" id="stream-title" name="stream-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stream-category">Category</label>
+                            <select id="stream-category" name="stream-category" required>
+                                <option value="">Select a category</option>
+                                <option value="gaming">Gaming</option>
+                                <option value="irl">IRL</option>
+                                <option value="music">Music</option>
+                                <option value="creative">Creative</option>
+                                <option value="music-production">Music Production</option>
+                                <option value="beat-making">Beat Making</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="stream-description">Description</label>
+                            <textarea id="stream-description" name="stream-description" rows="4"></textarea>
+                        </div>
+                        <button type="submit">Start Stream</button>
+                    </form>
+                </section>
+                
+                <section class="stream-stats">
+                    <h2>Stream Stats</h2>
+                    <div id="viewer-count">Viewers: 0</div>
+                    <div id="stream-duration">Duration: 00:00:00</div>
+                    <div class="quick-actions">
+                        <button onclick="window.location.href='studio%20editor.html'">Open Studio Editor</button>
+                        <button onclick="window.location.href='feeds.html'">View Feeds</button>
+                        <button id="open-music-studio">Open Music Studio</button>
+                        <button id="quick-community-toggle">Community Tools</button>
+                    </div>
+                </section>
+                
+                <section class="stream-editor">
+                    <h2>Stream Editor</h2>
+                    <div class="editor-container">
+                        <div class="preview-area">
+                            <div id="stream-preview">
+                                <video id="preview-video" autoplay muted></video>
+                                <div id="overlay-container"></div>
+                            </div>
+                        </div>
+                        <div class="editor-controls">
+                            <div class="overlay-manager">
+                                <h3>Overlays</h3>
+                                <ul id="overlay-list">
+                                    <!-- Overlay items will be added dynamically -->
+                                </ul>
+                                <button id="add-overlay">Add Overlay</button>
+                            </div>
+                            <div class="theme-selector">
+                                <h3>Themes</h3>
+                                <select id="theme-select">
+                                    <option value="default">Default</option>
+                                    <option value="neon">Neon</option>
+                                    <option value="minimal">Minimal</option>
+                                    <option value="retro">Retro</option>
+                                </select>
+                            </div>
+                            <div class="import-settings">
+                                <h3>Import Settings</h3>
+                                <button id="import-streamlabs">Import from StreamLabs</button>
+                                <button id="import-obs">Import from OBS</button>
+                            </div>
+                            <div class="editor-link">
+                                <button onclick="window.location.href='studio%20editor.html'">Advanced Editor</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="audio-equalizer">
+                    <h2>Audio Equalizer</h2>
+                    <div class="equalizer-container">
+                        <div class="equalizer-band">
+                            <label for="eq-low">Low</label>
+                            <input type="range" id="eq-low" min="-12" max="12" value="0" step="1">
+                            <span class="eq-value">0 dB</span>
+                        </div>
+                        <div class="equalizer-band">
+                            <label for="eq-mid">Mid</label>
+                            <input type="range" id="eq-mid" min="-12" max="12" value="0" step="1">
+                            <span class="eq-value">0 dB</span>
+                        </div>
+                        <div class="equalizer-band">
+                            <label for="eq-high">High</label>
+                            <input type="range" id="eq-high" min="-12" max="12" value="0" step="1">
+                            <span class="eq-value">0 dB</span>
+                        </div>
+                    </div>
+                    <div class="audio-controls">
+                        <button id="reset-equalizer">Reset Equalizer</button>
+                        <button id="apply-equalizer">Apply Changes</button>
+                    </div>
+                </section>
+                
+                <section class="soundboard">
+                    <h2>Customizable Soundboard</h2>
+                    <div class="soundboard-grid" id="soundboard-grid">
+                        <!-- Soundboard buttons will be added dynamically -->
+                    </div>
+                    <div class="soundboard-controls">
+                        <button id="add-sound">Add Sound</button>
+                        <button id="edit-soundboard">Edit Soundboard</button>
+                        <button id="import-from-studio">Import from Music Studio</button>
+                    </div>
+                    <div id="sound-upload-modal" class="modal">
+                        <div class="modal-content">
+                            <h3>Add New Sound</h3>
+                            <input type="file" id="sound-file" accept="audio/*">
+                            <input type="text" id="sound-name" placeholder="Sound Name">
+                            <button id="upload-sound">Upload</button>
+                            <button id="cancel-upload">Cancel</button>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="chat-module">
+                    <h2>Chat</h2>
+                    <div id="chat-messages"></div>
+                    <div id="reaction-bar">
+                        <button class="reaction-btn" data-reaction="👍">👍</button>
+                        <button class="reaction-btn" data-reaction="❤️">❤️</button>
+                        <button class="reaction-btn" data-reaction="😂">😂</button>
+                        <button class="reaction-btn" data-reaction="🎉">🎉</button>
+                        <button class="reaction-btn" data-reaction="🎵">🎵</button>
+                        <button class="reaction-btn" data-reaction="🔥">🔥</button>
+                        <button id="open-gif-picker">GIF</button>
+                        <button id="open-sticker-picker">Sticker</button>
+                    </div>
+                    <form id="chat-form">
+                        <input type="text" id="chat-input" placeholder="Type a message...">
+                        <button type="submit">Send</button>
+                    </form>
+                    <div class="chat-mode">
+                        <button id="toggle-sub-only-mode">Toggle Subscriber-Only Mode</button>
+                    </div>
+                </section>
+                
+                <section class="chat-moderator">
+                    <h2>Chat Moderator</h2>
+                    <div id="chat-moderator-box">
+                        <div id="moderated-messages"></div>
+                        <div class="moderator-actions">
+                            <button id="approve-message">Approve</button>
+                            <button id="delete-message">Delete</button>
+                            <button id="ban-user">Ban User</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="linked-accounts">
+                    <h2>Linked Accounts</h2>
+                    <form id="linked-accounts-form">
+                        <div class="form-group">
+                            <label for="youtube-link">YouTube</label>
+                            <input type="url" id="youtube-link" name="youtube-link" placeholder="https://youtube.com/c/yourchannel">
+                        </div>
+                        <div class="form-group">
+                            <label for="twitch-link">

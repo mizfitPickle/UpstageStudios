@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monetization Dashboard - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/monetization.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                Upstage Studios
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="monetization-dashboard">
+        <div class="dashboard-header">
+            <div class="header-content">
+                <button class="back-btn" onclick="window.location.href='creator-dashboard.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Dashboard
+                </button>
+                <h1>Monetization Dashboard</h1>
+                <div class="header-actions">
+                    <button class="payout-btn">
+                        <i class="fas fa-money-check-alt"></i>
+                        Request Payout
+                    </button>
+                    <button class="settings-btn" onclick="window.location.href='dashboard-settings.html#monetization'">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="monetization-overview">
+            <div class="revenue-summary">
+                <div class="summary-card total-earnings">
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Earnings</h3>
+                        <div class="amount">$2,847.32</div>
+                        <div class="period">This Month</div>
+                        <div class="change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +23.4% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-card pending-payout">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pending Payout</h3>
+                        <div class="amount">$1,234.56</div>
+                        <div class="period">Available March 15th</div>
+                        <div class="threshold">
+                            <i class="fas fa-info-circle"></i>
+                            $50 minimum for payout
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-card subscribers">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Active Subscribers</h3>
+                        <div class="amount">1,247</div>
+                        <div class="period">Current Month</div>
+                        <div class="change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +89 new this month
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-card avg-donation">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Average Donation</h3>
+                        <div class="amount">$12.45</div>
+                        <div class="period">Last 30 Days</div>
+                        <div class="change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +$2.15 from last month
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="monetization-content">
+            <div class="main-content">
+                <section class="revenue-breakdown">
+                    <div class="section-header">
+                        <h2>Revenue Breakdown</h2>
+                        <div class="time-filter">
+                            <button class="filter-btn active" data-period="7d">7 Days</button>
+                            <button class="filter-btn" data-period="30d">30 Days</button>
+                            <button class="filter-btn" data-period="90d">90 Days</button>
+                            <button class="filter-btn" data-period="1y">1 Year</button>
+                        </div>
+                    </div>
+                    
+                    <div class="revenue-chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                    
+                    <div class="revenue-sources">
+                        <div class="source-item">
+                            <div class="source-info">
+                                <div class="source-icon donations">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div class="source-details">
+                                    <h4>Donations</h4>
+                                    <p>Direct viewer support</p>
+                                </div>
+                            </div>
+                            <div class="source-amount">$1,456.78</div>
+                            <div class="source-percentage">51.2%</div>
+                        </div>
+
+                        <div class="source-item">
+                            <div class="source-info">
+                                <div class="source-icon subscriptions">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="source-details">
+                                    <h4>Subscriptions</h4>
+                                    <p>Monthly recurring revenue</p>
+                                </div>
+                            </div>
+                            <div class="source-amount">$987.34</div>
+                            <div class="source-percentage">34.7%</div>
+                        </div>
+
+                        <div class="source-item">
+                            <div class="source-info">
+                                <div class="source-icon ads">
+                                    <i class="fas fa-ad"></i>
+                                </div>
+                                <div class="source-details">
+                                    <h4>Ad Revenue</h4>
+                                    <p>Platform advertising share</p>
+                                </div>
+                            </div>
+                            <div class="source-amount">$234.12</div>
+                            <div class="source-percentage">8.2%</div>
+                        </div>
+
+                        <div class="source-item">
+                            <div class="source-info">
+                                <div class="source-icon merchandise">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="source-details">
+                                    <h4>Merchandise</h4>
+                                    <p>Product sales commission</p>
+                                </div>
+                            </div>
+                            <div class="source-amount">$169.08</div>
+                            <div class="source-percentage">5.9%</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recent-transactions">
+                    <div class="section-header">
+                        <h2>Recent Transactions</h2>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon donation">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-type">Donation</div>
+                                <div class="transaction-user">from BeatLover92</div>
+                                <div class="transaction-message">"Love your new track! Keep it up! 🎵"</div>
+                            </div>
+                            <div class="transaction-amount">+$25.00</div>
+                            <div class="transaction-time">2 hours ago</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon subscription">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-type">Subscription</div>
+                                <div class="transaction-user">MusicFan2023 - Tier 2</div>
+                                <div class="transaction-message">Monthly subscription renewal</div>
+                            </div>
+                            <div class="transaction-amount">+$9.99</div>
+                            <div class="transaction-time">5 hours ago</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon gift">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-type">Gift Subscription</div>
+                                <div class="transaction-user">ProducerPro gifted to NewListener</div>
+                                <div class="transaction-message">3-month Tier 1 subscription</div>
+                            </div>
+                            <div class="transaction-amount">+$14.97</div>
+                            <div class="transaction-time">1 day ago</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon merchandise">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-type">Merchandise</div>
+                                <div class="transaction-user">StudioShirt - Size L</div>
+                                <div class="transaction-message">Commission from store sale</div>
+                            </div>
+                            <div class="transaction-amount">+$8.50</div>
+                            <div class="transaction-time">2 days ago</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon donation">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-type">Donation</div>
+                                <div class="transaction-user">from RhythmMaster</div>
+                                <div class="transaction-message">"Amazing live session yesterday!"</div>
+                            </div>
+                            <div class="transaction-amount">+$50.00</div>
+                            <div class="transaction-time">3 days ago</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="goals-progress">
+                    <div class="section-header">
+                        <h2>Revenue Goals</h2>
+                        <button class="edit-goals-btn">
+                            <

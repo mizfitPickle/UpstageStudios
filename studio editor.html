@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Editor - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/studio-editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Upstage Studios</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html" class="active">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <div class="user-profile-mini">
+                    <img src="https://placehold.co/32x32" alt="Profile" class="mini-avatar" id="mini-avatar">
+                    <span class="username" id="header-username">Your Name</span>
+                </div>
+                <div class="user-dropdown">
+                    <button class="dropdown-btn">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="index.html" id="view-profile">View Profile</a>
+                        <a href="settings.html">Settings</a>
+                        <a href="creator-dashboard.html">Creator Dashboard</a>
+                        <hr>
+                        <a href="login.html">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="studio-editor">
+        <!-- Studio Editor Header -->
+        <div class="editor-header">
+            <div class="editor-title">
+                <h1>
+                    <i class="fas fa-video"></i>
+                    Studio Editor
+                </h1>
+                <p>Create, edit, and enhance your content</p>
+            </div>
+            
+            <div class="editor-actions">
+                <button class="action-btn secondary" id="save-project">
+                    <i class="fas fa-save"></i>
+                    Save Project
+                </button>
+                <button class="action-btn secondary" id="load-project">
+                    <i class="fas fa-folder-open"></i>
+                    Load Project
+                </button>
+                <button class="action-btn primary" id="export-video">
+                    <i class="fas fa-download"></i>
+                    Export Video
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Editor Container -->
+        <div class="editor-container">
+            <!-- Left Sidebar - Media Library & Tools -->
+            <aside class="editor-sidebar left-sidebar">
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active" data-tab="media">
+                        <i class="fas fa-folder"></i>
+                        Media
+                    </button>
+                    <button class="tab-btn" data-tab="effects">
+                        <i class="fas fa-magic"></i>
+                        Effects
+                    </button>
+                    <button class="tab-btn" data-tab="text">
+                        <i class="fas fa-font"></i>
+                        Text
+                    </button>
+                    <button class="tab-btn" data-tab="audio">
+                        <i class="fas fa-music"></i>
+                        Audio
+                    </button>
+                </div>
+
+                <!-- Media Tab -->
+                <div class="tab-content active" id="media-tab">
+                    <div class="media-section">
+                        <h3>
+                            <i class="fas fa-video"></i>
+                            Past Streams
+                        </h3>
+                        <div class="media-upload">
+                            <button class="upload-btn" id="upload-video">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Upload Video
+                            </button>
+                        </div>
+                        <div class="media-list" id="past-streams-list">
+                            <!-- Past streams will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="media-section">
+                        <h3>
+                            <i class="fas fa-film"></i>
+                            Clips Library
+                        </h3>
+                        <div class="media-upload">
+                            <button class="upload-btn" id="upload-clip">
+                                <i class="fas fa-plus"></i>
+                                Add Clip
+                            </button>
+                        </div>
+                        <div class="media-list" id="clips-list">
+                            <!-- Clips will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="media-section">
+                        <h3>
+                            <i class="fas fa-images"></i>
+                            Images & Graphics
+                        </h3>
+                        <div class="media-upload">
+                            <button class="upload-btn" id="upload-image">
+                                <i class="fas fa-image"></i>
+                                Upload Image
+                            </button>
+                        </div>
+                        <div class="media-list" id="images-list">
+                            <!-- Images will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Effects Tab -->
+                <div class="tab-content" id="effects-tab">
+                    <div class="effects-section">
+                        <h3>
+                            <i class="fas fa-palette"></i>
+                            Visual Effects
+                        </h3>
+                        <div class="effects-grid" id="visual-effects">
+                            <!-- Visual effects will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="effects-section">
+                        <h3>
+                            <i class="fas fa-adjust"></i>
+                            Filters
+                        </h3>
+                        <div class="effects-grid" id="filters">
+                            <!-- Filters will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="effects-section">
+                        <h3>
+                            <i class="fas fa-arrows-alt"></i>
+                            Transitions
+                        </h3>
+                        <div class="effects-grid" id="transitions">
+                            <!-- Transitions will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Tab -->
+                <div class="tab-content" id="text-tab">
+                    <div class="text-section">
+                        <h3>
+                            <i class="fas fa-heading"></i>
+                            Text Styles
+                        </h3>
+                        <div class="text-presets" id="text-presets">
+                            <!-- Text presets will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="text-controls">
+                        <div class="control-group">
+                            <label for="text-input">Text Content</label>
+                            <textarea id="text-input" placeholder="Enter your text here..."></textarea>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="font-family">Font Family</label>
+                            <select id="font-family">
+                                <option value="Arial">Arial</option>
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Comic Sans MS">Comic Sans MS</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                            </select>
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-group">
+                                <label for="font-size">Size</label>
+                                <input type="range" id="font-size" min="12" max="72" value="24">
+                                <span id="font-size-value">24px</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="text-color">Color</label>
+                                <input type="color" id="text-color" value="#ffffff">
+                            </div>
+                        </div>
+
+                        <div class="text-style-buttons">
+                            <button class="style-btn" id="bold-btn" title="Bold">
+                                <i class="fas fa-bold"></i>
+                            </button>
+                            <button class="style-btn" id="italic-btn" title="Italic">
+                                <i class="fas fa-italic"></i>
+                            </button>
+                            <button class="style-btn" id="underline-btn" title="Underline">
+                                <i class="fas fa-underline"></i>
+                            </button>
+                        </div>
+
+                        <button class="apply-btn" id="apply-text">
+                            <i class="fas fa-plus"></i>
+                            Add Text to Timeline
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audio Tab -->
+                <div class="tab-content" id="audio-tab">
+                    <div class="audio-section">
+                        <h3>
+                            <i class="fas fa-music"></i>
+                            Background Music
+                        </h3>
+                        <div class="media-upload">
+                            <button class="upload-btn" id="upload-audio">
+                                <i class="fas fa-upload"></i>
+                                Upload Audio
+                            </button>
+                        </div>
+                        <div class="audio-list" id="background-music">
+                            <!-- Background music will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="audio-section">
+                        <h3>
+                            <i class="fas fa-volume-up"></i>
+                            Sound Effects
+                        </h3>
+                        <div class="audio-list" id="sound-effects">
+                            <!-- Sound effects will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="audio-mixer">
+                        <h3>
+                            <i class="fas fa-sliders-h"></i>
+                            Audio Mixer
+                        </h3>
+                        <div class="mixer-controls">
+                            <div class="mixer-channel">
+                                <label>Main Audio</label>
+                                <input type="range" id="main-volume" min="0" max="100" value="100">
+                                <span class="volume-value">100%</span>
+                            </div>
+                            <div class="mixer-channel">
+                                <label>Background Music</label>
+                                <input type="range" id="bg-volume" min="0" max="100" value="50">
+                                <span class="volume-value">50%</span>
+                            </div>
+                            <div class="mixer-channel">
+                                <label>Sound Effects</label>
+                                <input type="range" id="sfx-volume" min="0" max="100" value="75">
+                                <span class="volume-value">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Area - Video Preview & Timeline -->
+            <div class="editor-main">
+                <!-- Video Preview Section -->
+                <section class="video-preview-section">
+                    <div class="preview-header">
+                        <h2>
+                            <i class="fas fa-play"></i>
+                            Video

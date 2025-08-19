@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/browse.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Upstage Studios</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html" class="active">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="browse-page">
+        <div class="browse-header">
+            <h1>Browse Content</h1>
+            <div class="browse-controls">
+                <div class="view-toggle">
+                    <button id="grid-view" class="view-btn active" title="Grid View">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button id="list-view" class="view-btn" title="List View">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+                <div class="sort-options">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="viewers">Most Viewers</option>
+                        <option value="recent">Recently Started</option>
+                        <option value="alphabetical">A-Z</option>
+                        <option value="duration">Stream Duration</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Section -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-star"></i>
+                    Featured Streams
+                </h2>
+                <button class="refresh-btn" id="refresh-featured">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="featured-carousel">
+                <button class="carousel-btn prev" id="featured-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="featured-container" id="featured-container">
+                    <!-- Featured streams will be populated here -->
+                </div>
+                <button class="carousel-btn next" id="featured-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-gamepad"></i>
+                    Browse Categories
+                </h2>
+                <div class="category-filters">
+                    <button class="category-filter active" data-type="all">All</button>
+                    <button class="category-filter" data-type="games">Games</button>
+                    <button class="category-filter" data-type="irl">IRL</button>
+                    <button class="category-filter" data-type="creative">Creative</button>
+                    <button class="category-filter" data-type="music">Music</button>
+                    <button class="category-filter" data-type="sports">Sports</button>
+                </div>
+            </div>
+            
+            <div class="categories-grid" id="categories-grid">
+                <div class="category-card" data-category="gaming">
+                    <div class="category-image">
+                        <img src="https://placehold.co/300x200" alt="Gaming">
+                        <div class="category-overlay">
+                            <div class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span>125,000 viewers</span>
+                            </div>
+                            <div class="stream-count">
+                                <i class="fas fa-video"></i>
+                                <span>2,500 streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Gaming</h3>
+                        <p>The latest and greatest games</p>
+                        <div class="category-tags">
+                            <span class="tag">Action</span>
+                            <span class="tag">RPG</span>
+                            <span class="tag">Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="music">
+                    <div class="category-image">
+                        <img src="https://placehold.co/300x200" alt="Music">
+                        <div class="category-overlay">
+                            <div class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span>85,000 viewers</span>
+                            </div>
+                            <div class="stream-count">
+                                <i class="fas fa-video"></i>
+                                <span>1,200 streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Music & Performing Arts</h3>
+                        <p>Live music, DJ sets, and performances</p>
+                        <div class="category-tags">
+                            <span class="tag">Live Music</span>
+                            <span class="tag">DJ Sets</span>
+                            <span class="tag">Karaoke</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="creative">
+                    <div class="category-image">
+                        <img src="https://placehold.co/300x200" alt="Creative">
+                        <div class="category-overlay">
+                            <div class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span>45,000 viewers</span>
+                            </div>
+                            <div class="stream-count">
+                                <i class="fas fa-video"></i>
+                                <span>800 streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Art & Creative</h3>
+                        <p>Digital art, crafts, and creative content</p>
+                        <div class="category-tags">
+                            <span class="tag">Digital Art</span>
+                            <span class="tag">Crafts</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="irl">
+                    <div class="category-image">
+                        <img src="https://placehold.co/300x200" alt="IRL">
+                        <div class="category-overlay">
+                            <div class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span>95,000 viewers</span>
+                            </div>
+                            <div class="stream-count">
+                                <i class="fas fa-video"></i>
+                                <span>1,800 streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Just Chatting</h3>
+                        <p>Real life streams and conversations</p>
+                        <div class="category-tags">
+                            <span class="tag">Chatting</span>
+                            <span class="tag">Travel</span>
+                            <span class="tag">Cooking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="sports">
+                    <div class="category-image">
+                        <img src="https://placehold.co/300x200" alt="Sports">
+                        <div class="category-overlay">
+                            <div class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span>35,000 viewers</span>
+                            </div>
+                            <div class="stream-count">
+                                <i class="fas fa-video"></i>
+                                <span>450 streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Sports</h3>
+                        <p>Sports content and fitness streams</p>
+                        <div class="category-tags">
+                            <span class="tag">Fitness</span>
+                            <span class="tag">Esports</span>
+                            <span class="tag">Outdoor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="education">
+                    <div class="category-image">
+                        <img src="https://placehold.co/300x200" alt="Education">
+                        <div class="category-overlay">
+                            <div class="viewer-count">
+                                <i class="fas fa-eye"></i>
+                                <span>25,000 viewers</span>
+                            </div>
+                            <div class="stream-count">
+                                <i class="fas fa-video"></i>
+                                <span>300 streams</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Science & Technology</h3>
+                        <p>Educational and tech content</p>
+                        <div class="category-tags">
+                            <span class="tag">Programming</span>
+                            <span class="tag">Science</span>
+                            <span class="tag">Tutorials</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Channels Section -->
+        <section class="live-channels-section">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-circle live-indicator"></i>
+                    Live Channels
+                    <span class="live-count" id="total-live-count">(0)</span>
+                </h2>
+                <div class="channel-filters">
+                    <select id="language-filter">
+                        <option value="all">All Languages</option>
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                    </select>
+                    <select id="viewer-filter">
+                        <option value="all">All Viewers</option>
+                        <option value="1000+">1,000+ viewers</option>
+                        <option value="5000+">5,000+ viewers</option>
+                        <option value="10000+">10,000+ viewers</option>
+                    </select>
+                </div>

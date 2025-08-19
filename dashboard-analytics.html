@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                Upstage Studios
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="analytics-dashboard">
+        <div class="dashboard-header">
+            <div class="header-content">
+                <button class="back-btn" onclick="window.location.href='creator-dashboard.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Dashboard
+                </button>
+                <h1>Analytics & Insights</h1>
+                <div class="date-range-selector">
+                    <select id="date-range">
+                        <option value="7">Last 7 days</option>
+                        <option value="30" selected>Last 30 days</option>
+                        <option value="90">Last 90 days</option>
+                        <option value="365">Last year</option>
+                    </select>
+                    <button id="export-data" class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export Data
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Metrics Overview -->
+        <section class="metrics-overview">
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Total Views</h3>
+                        <div class="metric-value" id="total-views">125,847</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +12.5% from last period
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Unique Viewers</h3>
+                        <div class="metric-value" id="unique-viewers">8,432</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +8.3% from last period
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Avg. Watch Time</h3>
+                        <div class="metric-value" id="avg-watch-time">24m 32s</div>
+                        <div class="metric-change negative">
+                            <i class="fas fa-arrow-down"></i>
+                            -2.1% from last period
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>New Followers</h3>
+                        <div class="metric-value" id="new-followers">1,247</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +18.7% from last period
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Engagement Rate</h3>
+                        <div class="metric-value" id="engagement-rate">7.8%</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +0.9% from last period
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Revenue</h3>
+                        <div class="metric-value" id="revenue">$2,847</div>
+                        <div class="metric-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +23.4% from last period
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h2>Viewership Over Time</h2>
+                    <canvas id="viewership-chart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h2>Audience Demographics</h2>
+                    <div class="demographics-tabs">
+                        <button class="demo-tab active" data-demo="age">Age</button>
+                        <button class="demo-tab" data-demo="gender">Gender</button>
+                        <button class="demo-tab" data-demo="location">Location</button>
+                    </div>
+                    <canvas id="demographics-chart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h2>Stream Performance</h2>
+                    <canvas id="stream-performance-chart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h2>Revenue Breakdown</h2>
+                    <canvas id="revenue-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Analytics -->
+        <section class="detailed-analytics">
+            <div class="analytics-tabs">
+                <button class="tab-btn active" data-tab="audience">
+                    <i class="fas fa-users"></i>
+                    Audience
+                </button>
+                <button class="tab-btn" data-tab="content">
+                    <i class="fas fa-video"></i>
+                    Content
+                </button>
+                <button class="tab-btn" data-tab="monetization">
+                    <i class="fas fa-coins"></i>
+                    Monetization
+                </button>
+                <button class="tab-btn" data-tab="growth">
+                    <i class="fas fa-chart-line"></i>
+                    Growth
+                </button>
+            </div>
+
+            <!-- Audience Tab -->
+            <div class="tab-content active" id="audience-tab">
+                <div class="audience-grid">
+                    <div class="audience-section">
+                        <h3>Top Countries</h3>
+                        <div class="country-list">
+                            <div class="country-item">
+                                <span class="country-flag">🇺🇸</span>
+                                <span class="country-name">United States</span>
+                                <span class="country-percentage">42.3%</span>
+                            </div>
+                            <div class="country-item">
+                                <span class="country-flag">🇬🇧</span>
+                                <span class="country-name">United Kingdom</span>
+                                <span class="country-percentage">18.7%</span>
+                            </div>
+                            <div class="country-item">
+                                <span class="country-flag">🇨🇦</span>
+                                <span class="country-name">Canada</span>
+                                <span class="country-percentage">12.1%</span>
+                            </div>
+                            <div class="country-item">
+                                <span class="country-flag">🇦🇺</span>
+                                <span class="country-name">Australia</span>
+                                <span class="country-percentage">8.9%</span>
+                            </div>
+                            <div class="country-item">
+                                <span class="country-flag">🇩🇪</span>
+                                <span class="country-name">Germany</span>
+                                <span class="country-percentage">6.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="audience-section">
+                        <h3>Peak Viewing Hours</h3>
+                        <div class="heatmap-container">
+                            <canvas id="viewing-hours-heatmap"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="audience-section">
+                        <h3>Device Usage</h3>
+                        <div class="device-stats">
+                            <div class="device-item">
+                                <i class="fas fa-desktop"></i>
+                                <span class="device-name">Desktop</span>
+                                <span class="device-percentage">58.3%</span>
+                            </div>
+                            <div class="device-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span class="device-name">Mobile</span>
+                                <span class="device-percentage">31.7%</span>
+                            </div>
+                            <div class="device-item">
+                                <i class="fas fa-tablet-alt"></i>
+                                <span class="device-name">Tablet</span>
+                                <span class="device-percentage">10.0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="audience-section">
+                        <h3>Audience Retention</h3>
+                        <canvas id="retention-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Tab -->
+            <div class="tab-content" id="content-tab">
+                <div class="content-grid">
+                    <div class="content-section">
+                        <h3>Top Performing Streams</h3>
+                        <div class="stream-list">
+                            <div class="stream-item">
+                                <div class="stream-thumbnail">
+                                    <img src="https://placehold.co/120x68" alt="Stream thumbnail">
+                                </div>
+                                <div class="stream-info">
+                                    <h4>Epic Beat Making Session</h4>
+                                    <p>2 days ago • 3.2K views • 45m duration</p>
+                                    <div class="stream-metrics">
+                                        <span><i class="fas fa-eye"></i> 3,247</span>
+                                        <span><i class="fas fa-heart"></i> 892</span>
+                                        <span><i class="fas fa-comment"></i> 156</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stream-item">
+                                <div class="stream-thumbnail">
+                                    <img src="https://placehold.co/120x68" alt="Stream thumbnail">
+                                </div>
+                                <div class="stream-info">
+                                    <h4>Chill Music Production</h4>
+                                    <p>5 days ago • 2.8K views • 1h 23m duration</p>
+                                    <div class="stream-metrics">
+                                        <span><i class="fas fa-eye"></i> 2,834</span>
+                                        <span><i class="fas fa-heart"></i> 743</span>
+                                        <span><i class="fas fa-comment"></i> 98</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stream-item">
+                                <div class="stream-thumbnail">
+                                    <img src="https://placehold.co/120x68" alt="Stream thumbnail">
+                                </div>
+                                <div class="stream-info">
+                                    <h4>Live Remix Challenge</h4>
+                                    <p>1 week ago •

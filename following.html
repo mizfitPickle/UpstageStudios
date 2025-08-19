@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Following - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/following.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Upstage Studios</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html" class="active">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <button onclick="window.location.href='login.html'">Log In</button>
+                <button onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="following-page">
+        <div class="following-header">
+            <h1>Following</h1>
+            <div class="following-stats">
+                <span id="following-count">Following 0 channels</span>
+                <div class="view-options">
+                    <button id="grid-view" class="view-btn active" title="Grid View">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button id="list-view" class="view-btn" title="List View">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="following-filters">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="live">Live Now</button>
+                <button class="filter-tab" data-filter="offline">Offline</button>
+                <button class="filter-tab" data-filter="recent">Recently Streamed</button>
+            </div>
+            
+            <div class="sort-options">
+                <label for="sort-following">Sort by:</label>
+                <select id="sort-following">
+                    <option value="last-broadcast">Last Broadcast</option>
+                    <option value="alphabetical">A-Z</option>
+                    <option value="viewers">Most Viewers</option>
+                    <option value="follow-date">Follow Date</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="following-content">
+            <!-- Live Channels Section -->
+            <section class="live-channels" id="live-channels">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-circle live-indicator"></i>
+                        Live Channels
+                        <span class="live-count" id="live-count">(0)</span>
+                    </h2>
+                    <button class="expand-btn" id="expand-live">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="channels-grid" id="live-grid">
+                    <!-- Live channels will be populated here -->
+                </div>
+            </section>
+
+            <!-- Recently Streamed Section -->
+            <section class="recent-channels" id="recent-channels">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-clock"></i>
+                        Recently Streamed
+                        <span class="recent-count" id="recent-count">(0)</span>
+                    </h2>
+                    <button class="expand-btn" id="expand-recent">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="channels-grid" id="recent-grid">
+                    <!-- Recent channels will be populated here -->
+                </div>
+            </section>
+
+            <!-- Offline Channels Section -->
+            <section class="offline-channels" id="offline-channels">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-user"></i>
+                        Offline Channels
+                        <span class="offline-count" id="offline-count">(0)</span>
+                    </h2>
+                    <button class="expand-btn" id="expand-offline">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="channels-grid" id="offline-grid">
+                    <!-- Offline channels will be populated here -->
+                </div>
+            </section>
+
+            <!-- Following Management -->
+            <section class="following-management">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-cog"></i>
+                        Manage Following
+                    </h2>
+                </div>
+                <div class="management-tools">
+                    <button id="bulk-unfollow" class="management-btn">
+                        <i class="fas fa-user-minus"></i>
+                        Bulk Unfollow
+                    </button>
+                    <button id="export-following" class="management-btn">
+                        <i class="fas fa-download"></i>
+                        Export List
+                    </button>
+                    <button id="import-following" class="management-btn">
+                        <i class="fas fa-upload"></i>
+                        Import List
+                    </button>
+                    <button id="notification-settings" class="management-btn">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Recommended Channels Section -->
+        <div class="recommended-section">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-star"></i>
+                    Recommended Channels
+                </h2>
+                <button class="refresh-btn" id="refresh-recommendations">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+            </div>
+            
+            <div class="recommendation-filters">
+                <button class="rec-filter active" data-category="all">All</button>
+                <button class="rec-filter" data-category="gaming">Gaming</button>
+                <button class="rec-filter" data-category="music">Music</button>
+                <button class="rec-filter" data-category="creative">Creative</button>
+                <button class="rec-filter" data-category="irl">IRL</button>
+            </div>
+            
+            <div class="recommended-grid" id="recommended-grid">
+                <!-- Recommended channels will be populated here -->
+            </div>
+            
+            <button class="load-more-recommendations" id="load-more-rec">
+                Load More Recommendations
+            </button>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-content">
+                <i class="fas fa-heart"></i>
+                <h3>You're not following anyone yet</h3>
+                <p>Discover amazing creators and never miss their streams!</p>
+                <div class="empty-actions">
+                    <button onclick="window.location.href='browse.html'" class="browse-btn">
+                        <i class="fas fa-compass"></i>
+                        Browse Channels
+                    </button>
+                    <button onclick="window.location.href='search.html'" class="search-btn">
+                        <i class="fas fa-search"></i>
+                        Search Creators
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Settings Modal -->
+        <div id="notification-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Notification Settings</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="notification-option">
+                        <label>
+                            <input type="checkbox" id="live-notifications" checked>
+                            <span class="checkmark"></span>
+                            Notify when channels go live
+                        </label>
+                    </div>
+                    <div class="notification-option">
+                        <label>
+                            <input type="checkbox" id="upload-notifications">
+                            <span class="checkmark"></span>
+                            Notify about new uploads
+                        </label>
+                    </div>
+                    <div class="notification-option">
+                        <label>
+                            <input type="checkbox" id="email-notifications">
+                            <span class="checkmark"></span>
+                            Email notifications
+                        </label>
+                    </div>
+                    <div class="notification-option">
+                        <label>
+                            <input type="checkbox" id="push-notifications" checked>
+                            <span class="checkmark"></span>
+                            Push notifications
+                        </label>
+                    </div>
+                    <div class="notification-timing">
+                        <label for="notification-delay">Notification delay:</label>
+                        <select id="notification-delay">
+                            <option value="instant">Instant</option>
+                            <option value="5min">5 minutes</option>
+                            <option value="15min">15 minutes</option>
+                            <option value="30min">30 minutes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-notifications" class="save-btn">Save Settings</button>
+                    <button id="cancel-notifications" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Unfollow Modal -->
+        <div id="bulk-unfollow-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Bulk Unfollow</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="bulk-options">
+                        <label>
+                            <input type="checkbox" id="select-all-bulk">
+                            Select All
+                        </label>
+                    </div>
+                    <div class="bulk-list" id="bulk-list">
+                        <!-- Channels for bulk unfollow will be listed here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirm-bulk-unfollow" class="unfollow-btn">Unfollow Selected</button>
+                    <button id="cancel-bulk-unfollow" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel Preview Modal -->
+        <div id="channel-preview-modal" class="modal">
+            <div class="modal-content large">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="preview-content">
+                        <div class="preview-video">
+                            <video id="preview-player" controls>
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>

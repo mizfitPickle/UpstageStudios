@@ -1,0 +1,137 @@
+
+.feeds-page {
+    padding: 20px;
+    overflow: hidden;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.category-filter {
+    background-color: #1a1a1a;
+    color: #00FFFF;
+    border: 1px solid #39FF14;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-filter.active, .category-filter:hover {
+    background-color: #39FF14;
+    color: #000000;
+}
+
+.feed-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: calc(100vh - 250px);
+}
+
+.feed-item {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.stream-container {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 9 / 16;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #39FF14;
+    border-radius: 10px;
+}
+
+.stream-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stream-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.streamer-name {
+    font-size: 24px;
+    color: #39FF14;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.stream-title {
+    font-size: 18px;
+    color: #00FFFF;
+    margin-bottom: 10px;
+}
+
+.stream-category {
+    font-size: 16px;
+    color: #888;
+}
+
+.stream-interactions {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.stream-interactions button {
+    background-color: transparent;
+    border: none;
+    color: #00FFFF;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stream-interactions button:hover {
+    color: #39FF14;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel-controls button {
+    background-color: #39FF14;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background-color: #00FFFF;
+}
+
+.streamer-profile-preview {
+    position: absolute;
+    background-color: #1a1a1a;
+    border: 1px solid #39FF14;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+    display: none;
+}
+
+.streamer-avatar {
+    width:

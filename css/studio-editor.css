@@ -1,0 +1,264 @@
+
+/* General Styles */
+.studio-editor {
+    padding: 30px;
+    color: #00FFFF;
+    background-color: #121212;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Editor Container */
+.editor-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Common Styles for Editor Sections */
+.video-preview, .timeline, .tools, .export, .clip-library, .text-overlay, .effect-library, .audio-mixer, .past-streams, .linked-platforms {
+    background-color: #1a1a1a;
+    border: 1px solid #39FF14;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(57, 255, 20, 0.2);
+    transition: all 0.3s ease;
+}
+
+.video-preview:hover, .timeline:hover, .tools:hover, .export:hover, .clip-library:hover, .text-overlay:hover, .effect-library:hover, .audio-mixer:hover, .past-streams:hover, .linked-platforms:hover {
+    box-shadow: 0 6px 20px rgba(57, 255, 20, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Grid Layout */
+.video-preview, .timeline {
+    grid-column: span 3;
+}
+
+.past-streams, .clip-library {
+    grid-column: span 2;
+}
+
+/* Video Player */
+#video-player {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+}
+
+#main-video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Timeline */
+#timeline-container {
+    position: relative;
+    height: 220px;
+    background-color: #2a2a2a;
+    margin-top: 20px;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-track {
+    position: relative;
+    height: 60px;
+    margin-bottom: 8px;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.timeline-track:hover {
+    background-color: #4a4a4a;
+}
+
+.track-label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00FFFF;
+    font-weight: bold;
+}
+
+#playhead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #FF0000;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Lists */
+#clip-list, #effect-list, #past-streams-list, #linked-platforms-list {
+    height: 180px;
+    overflow-y: auto;
+    border: 1px solid #39FF14;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #222;
+}
+
+/* Buttons */
+.tools button, .export button, #add-clip-btn, #apply-text-btn, #load-stream-btn, #delete-stream-btn, #link-platform-btn {
+    background-color: #39FF14;
+    color: #000000;
+    border: none;
+    padding: 12px 24px;
+    margin: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(57, 255, 20, 0.3);
+}
+
+.tools button:hover, .export button:hover, #add-clip-btn:hover, #apply-text-btn:hover, #load-stream-btn:hover, #delete-stream-btn:hover, #link-platform-btn:hover {
+    background-color: #00FFFF;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Select and Input Styles */
+#platform-select, #font-select, #text-input, #text-color {
+    background-color: #2a2a2a;
+    color: #00FFFF;
+    border: 1px solid #39FF14;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+#platform-select:focus, #font-select:focus, #text-input:focus, #text-color:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+#platform-select {
+    width: 100%;
+    height: 120px;
+}
+
+/* Audio Tracks */
+.audio-track {
+    margin-bottom: 15px;
+}
+
+.audio-track label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00FFFF;
+}
+
+.audio-track input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    background: #2a2a2a;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 10px;
+    height: 8px;
+}
+
+.audio-track input[type="range"]:hover {
+    opacity: 1;
+}
+
+.audio-track input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #39FF14;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+.audio-track input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #39FF14;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+/* Past Streams and Linked Platforms */
+.past-streams-item, .linked-platform-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #39FF14;
+    transition: background-color 0.2s ease;
+}
+
+.past-streams-item:hover, .linked-platform-item:hover {
+    background-color: #2a2a2a;
+}
+
+.past-streams-item:last-child, .linked-platform-item:last-child {
+    border-bottom: none;
+}
+
+.past-streams-item span, .linked-platform-item span {
+    flex-grow: 1;
+    color: #00FFFF;
+}
+
+.past-streams-item button, .linked-platform-item button {
+    background-color: transparent;
+    color: #FF4136;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.past-streams-item button:hover, .linked-platform-item button:hover {
+    background-color: rgba(255, 65, 54, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .editor-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-preview, .timeline {
+        grid-column: span 2;
+    }
+
+    .past-streams, .clip-library {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .editor-container {
+        grid-template-columns: 1fr;
+    }
+
+    .video-preview, .timeline, .past-streams, .clip-library {
+        grid-column: span 1;
+    }
+}

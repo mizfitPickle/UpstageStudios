@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile - Upstage Studios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="logo" title="Upstage Studios">Upstage Studios</div>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="following.html">Following</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="feeds.html">Feeds</a></li>
+                <li><a href="studio%20editor.html">Studio Editor</a></li>
+                <li><a href="creator-dashboard.html">Creator Dashboard</a></li>
+            </ul>
+            <div class="user-menu">
+                <div class="user-profile-mini">
+                    <img src="https://placehold.co/32x32" alt="Profile" class="mini-avatar" id="mini-avatar">
+                    <span class="username" id="header-username">Your Name</span>
+                </div>
+                <div class="user-dropdown">
+                    <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-chevron-down"></i>
+                        <span class="sr-only">User Menu</span>
+                    </button>
+                    <div class="dropdown-menu" aria-label="User menu options">
+                        <a href="#" id="view-profile">View Profile</a>
+                        <a href="settings.html">Settings</a>
+                        <a href="creator-dashboard.html">Creator Dashboard</a>
+                        <hr aria-hidden="true">
+                        <a href="login.html">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="profile-page">
+        <!-- Profile Header with Enhanced Design -->
+        <div class="profile-header">
+            <div class="cover-photo" id="cover-photo">
+                <div class="cover-overlay"></div>
+                <button class="edit-cover-btn" id="edit-cover" title="Change Cover Photo">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            
+            <div class="profile-info-container">
+                <div class="profile-picture-wrapper">
+                    <img src="https://placehold.co/150x150" alt="Profile Picture" class="profile-picture" id="profile-picture">
+                    <button class="edit-avatar-btn" id="edit-avatar" title="Change Profile Picture">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <div class="status-indicator" id="status-indicator">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="profile-name-section">
+                        <h1 class="profile-name" id="profile-name">Your Name</h1>
+                        <button class="edit-name-btn" id="edit-name" title="Edit Name">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <div class="verification-badge" id="verification-badge">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    
+                    <p class="profile-tagline" id="profile-tagline">Your catchy tagline goes here</p>
+                    <button class="edit-tagline-btn" id="edit-tagline" title="Edit Tagline">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="follower-count">0</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="following-count">0</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-views">0</span>
+                            <span class="stat-label">Total Views</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="stream-hours">0</span>
+                            <span class="stat-label">Hours Streamed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button class="action-btn primary" id="start-stream">
+                            <i class="fas fa-video"></i>
+                            Start Stream
+                        </button>
+                        <button class="action-btn secondary" id="create-clip">
+                            <i class="fas fa-cut"></i>
+                            Create Clip
+                        </button>
+                        <button class="action-btn secondary" id="share-profile">
+                            <i class="fas fa-share"></i>
+                            Share Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Navigation -->
+        <div class="profile-nav">
+            <div class="nav-container">
+                <button class="nav-btn active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </button>
+                <button class="nav-btn" data-section="about">
+                    <i class="fas fa-user"></i>
+                    About
+                </button>
+                <button class="nav-btn" data-section="posts">
+                    <i class="fas fa-newspaper"></i>
+                    Posts
+                    <span class="notification-badge" id="posts-badge">3</span>
+                </button>
+                <button class="nav-btn" data-section="past-streams">
+                    <i class="fas fa-history"></i>
+                    Past Streams
+                </button>
+                <button class="nav-btn" data-section="clips">
+                    <i class="fas fa-film"></i>
+                    Clips
+                </button>
+                <button class="nav-btn" data-section="highlights">
+                    <i class="fas fa-star"></i>
+                    Highlights
+                </button>
+                <button class="nav-btn" data-section="friends">
+                    <i class="fas fa-users"></i>
+                    Friends
+                </button>
+                <button class="nav-btn" data-section="photos">
+                    <i class="fas fa-images"></i>
+                    Gallery
+                </button>
+                <button class="nav-btn" data-section="achievements">
+                    <i class="fas fa-trophy"></i>
+                    Achievements
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="profile-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card quick-stats">
+                        <h3>
+                            <i class="fas fa-chart-line"></i>
+                            Quick Stats
+                        </h3>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-value" id="today-views">0</span>
+                                <span class="stat-desc">Views Today</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-value" id="week-streams">0</span>
+                                <span class="stat-desc">Streams This Week</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-value" id="avg-viewers">0</span>
+                                <span class="stat-desc">Avg Viewers</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-value" id="new-followers">0</span>
+                                <span class="stat-desc">New Followers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card recent-activity">
+                        <h3>
+                            <i class="fas fa-clock"></i>
+                            Recent Activity
+                        </h3>
+                        <div class="activity-list" id="activity-list">
+                            <!-- Activity items will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card streaming-schedule">
+                        <h3>
+                            <i class="fas fa-calendar"></i>
+                            Streaming Schedule
+                        </h3>
+                        <div class="schedule-container" id="schedule-container">
+                            <!-- Schedule items will be populated here -->
+                        </div>
+                        <button class="add-schedule-btn" id="add-schedule">
+                            <i class="fas fa-plus"></i>
+                            Add Stream Time
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card goals-progress">
+                        <h3>
+                            <i class="fas fa-target"></i>
+                            Goals & Progress
+                        </h3>
+                        <div class="goals-list" id="goals-list">
+                            <!-- Goals will be populated here -->
+                        </div>
+                        <button class="add-goal-btn" id="add-goal">
+                            <i class="fas fa-plus"></i>
+                            Set New Goal
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <div class="about-container">
+                    <div class="about-main">
+                        <h2>About Me</h2>
+                        <div class="about-content">
+                            <div class="about-text-section">
+                                <p id="about-text">Tell the world about yourself!</p>
+                                <button class="edit-about-btn" id="edit-about">
+                                    <i class="fas fa-edit"></i>
+                                    Edit Bio
+                                </button>
+                            </div>
+                            
+                            <div class="about-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Joined: <span id="join-date">January 2023</span></span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Location: <span id="location">Not specified</span></span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <span>Birthday: <span id="birthday">Not specified</span></span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>Favorite Games: <span id="favorite-games">Not specified</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-sidebar">
+                        <div class="
